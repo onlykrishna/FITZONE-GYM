@@ -79,15 +79,17 @@ const StickyModal = () => {
             initial={{ scale: 0.9, opacity: 0, y: 20 }}
             animate={{ scale: 1, opacity: 1, y: 0 }}
             exit={{ scale: 0.9, opacity: 0, y: 20 }}
-            className="relative w-full max-w-xl bg-neutral-900 border border-white/5 rounded-sm overflow-hidden shadow-[0_40px_100px_-20px_rgba(0,0,0,0.8)] overflow-y-auto max-h-[90vh]"
+            className="relative w-full max-w-xl bg-neutral-900 border border-white/5 rounded-sm shadow-[0_40px_100px_-20px_rgba(0,0,0,0.8)] overflow-visible"
           >
-            {/* Close Button */}
+            {/* Close Button - Outside scroll container for 100% accessibility */}
             <button
               onClick={handleClose}
-              className="absolute top-4 right-4 text-neutral-400 hover:text-primary transition-colors z-20"
+              className="absolute -top-12 right-0 md:-right-12 text-white/40 hover:text-primary transition-all z-50 p-2 group"
             >
-              <X size={24} />
+              <X size={32} className="group-hover:rotate-90 transition-transform" />
             </button>
+
+            <div className="overflow-y-auto max-h-[90vh] rounded-sm">
 
             <div className="flex flex-col md:flex-row h-full">
               {/* Image Side */}
@@ -195,6 +197,7 @@ const StickyModal = () => {
                   </motion.div>
                 )}
               </div>
+            </div>
             </div>
           </motion.div>
         </div>
