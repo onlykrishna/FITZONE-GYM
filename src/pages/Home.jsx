@@ -13,16 +13,16 @@ const Home = () => {
   ];
 
   const categories = [
-    { title: 'HIIT', img: 'https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=2070&auto=format&fit=crop', desc: 'High Intensity Interval Training to burn fat & build stamina.' },
-    { title: 'Yoga', img: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=2020&auto=format&fit=crop', desc: 'Find your balance, flexibility, and inner peace.' },
-    { title: 'Strength', img: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=2070&auto=format&fit=crop', desc: 'Pure power. Build muscle with elite coaching.' },
-    { title: 'Zumba', img: 'https://images.unsplash.com/photo-1524594152303-9fd13543fe6e?q=80&w=2070&auto=format&fit=crop', desc: 'Dance your way to fitness with high energy.' },
+    { title: 'HIIT', img: 'https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=800&auto=format&fit=crop', desc: 'High Intensity Interval Training to burn fat & build stamina.' },
+    { title: 'Yoga', img: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=800&auto=format&fit=crop', desc: 'Find your balance, flexibility, and inner peace.' },
+    { title: 'Strength', img: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=800&auto=format&fit=crop', desc: 'Pure power. Build muscle with elite coaching.' },
+    { title: 'Zumba', img: 'https://images.unsplash.com/photo-1524594152303-9fd13543fe6e?q=80&w=800&auto=format&fit=crop', desc: 'Dance your way to fitness with high energy.' },
   ];
 
   const trainers = [
-    { name: 'Rahul Verma', role: 'Head Coach', img: 'https://images.unsplash.com/photo-1594381898411-846e7d193883?q=80&w=2000&auto=format&fit=crop' },
-    { name: 'Sarah Singh', role: 'Yoga Specialist', img: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=2000&auto=format&fit=crop' },
-    { name: 'Mike Johnson', role: 'Strength Lead', img: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=2000&auto=format&fit=crop' },
+    { name: 'Rahul Verma', role: 'Head Coach', img: 'https://images.unsplash.com/photo-1594381898411-846e7d193883?q=80&w=800&auto=format&fit=crop' },
+    { name: 'Sarah Singh', role: 'Yoga Specialist', img: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=800&auto=format&fit=crop' },
+    { name: 'Mike Johnson', role: 'Strength Lead', img: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=800&auto=format&fit=crop' },
   ];
 
   const testimonials = [
@@ -143,9 +143,15 @@ const Home = () => {
               <ThreeDTilt key={cat.title}>
                 <motion.div
                   whileHover={{ scale: 1.02 }}
+                  onClick={() => window.dispatchEvent(new CustomEvent('open-elite-modal'))}
                   className="group relative h-[600px] overflow-hidden rounded-sm cursor-pointer shadow-3xl transition-all duration-1000"
                 >
-                  <img src={cat.img} className="absolute inset-0 w-full h-full object-cover z-0 transition-all duration-1000 scale-105 group-hover:scale-110" />
+                  <img 
+                    src={cat.img} 
+                    className="absolute inset-0 w-full h-full object-cover z-0 transition-all duration-1000 scale-105 group-hover:scale-110" 
+                    loading="lazy"
+                    alt={cat.title}
+                  />
                   <div className="absolute inset-0 bg-gradient-to-t from-secondary via-secondary/40 to-transparent p-10 flex flex-col justify-end z-10">
                     <span className="text-primary font-display text-sm tracking-[0.4em] uppercase mb-2 font-black">Elite Class</span>
                     <h3 className="text-5xl text-white font-display italic mb-4 uppercase tracking-tighter">{cat.title}</h3>
@@ -235,10 +241,14 @@ const Home = () => {
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12">
             {trainers.map((trainer, i) => (
               <ThreeDTilt key={i}>
-                <div className="group relative bg-neutral-800 rounded-sm overflow-hidden border border-white/5 hover:border-primary/50 transition-all duration-700 h-[650px] shadow-3xl">
+                <div 
+                  onClick={() => window.dispatchEvent(new CustomEvent('open-elite-modal'))}
+                  className="group relative bg-neutral-800 rounded-sm overflow-hidden border border-white/5 hover:border-primary/50 transition-all duration-700 h-[650px] shadow-3xl cursor-pointer"
+                >
                    <img 
                     src={trainer.img} 
                     className="absolute inset-0 w-full h-full object-cover z-0 transition-all duration-1000 scale-105 group-hover:scale-100" 
+                    loading="lazy"
                     alt={trainer.name}
                    />
                    <div className="absolute inset-0 bg-gradient-to-t from-neutral-900 via-neutral-900/40 to-transparent z-10 flex flex-col justify-end p-10">

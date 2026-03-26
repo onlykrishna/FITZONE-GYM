@@ -11,11 +11,18 @@ const StickyModal = () => {
     const hasSeenModal = sessionStorage.getItem('fitzone_modal_seen');
     if (hasSeenModal) return;
 
-    // Time-based trigger (5s)
+    // Custom trigger for cards
+    const handleManualOpen = () => setIsOpen(true);
+    window.addEventListener('open-elite-modal', handleManualOpen);
+
+    // Time-based trigger (2s for faster engagement)
     const timer = setTimeout(() => {
-      setIsOpen(true);
-      sessionStorage.setItem('fitzone_modal_seen', 'true');
-    }, 15000); // Set to 15s to be less intrusive for first time development, but business plan said 5s
+      const hasSeenModal = sessionStorage.getItem('fitzone_modal_seen');
+      if (!hasSeenModal) {
+        setIsOpen(true);
+        sessionStorage.setItem('fitzone_modal_seen', 'true');
+      }
+    }, 2000);
 
     // Exit-intent trigger
     const handleMouseLeave = (e) => {
@@ -29,6 +36,7 @@ const StickyModal = () => {
     return () => {
       clearTimeout(timer);
       document.removeEventListener('mouseleave', handleMouseLeave);
+      window.removeEventListener('open-elite-modal', handleManualOpen);
     };
   }, []);
 
@@ -85,8 +93,9 @@ const StickyModal = () => {
               {/* Image Side */}
               <div className="hidden md:block w-2/5 relative bg-neutral-800">
                 <img 
-                  src="https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?q=80&w=2069&auto=format&fit=crop" 
+                  src="https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?q=80&w=800&auto=format&fit=crop" 
                   className="absolute inset-0 w-full h-full object-cover z-0" 
+                  loading="lazy"
                   alt="Training"
                 />
                 <div className="absolute inset-0 bg-primary/20 backdrop-blur-[1px] p-6 flex flex-col justify-end z-10">
