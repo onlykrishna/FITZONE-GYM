@@ -71,7 +71,7 @@ const StickyModal = () => {
             initial={{ scale: 0.9, opacity: 0, y: 20 }}
             animate={{ scale: 1, opacity: 1, y: 0 }}
             exit={{ scale: 0.9, opacity: 0, y: 20 }}
-            className="relative w-full max-w-xl bg-white rounded-xl overflow-hidden shadow-2xl overflow-y-auto max-h-[90vh]"
+            className="relative w-full max-w-xl bg-neutral-900 border border-white/5 rounded-sm overflow-hidden shadow-[0_40px_100px_-20px_rgba(0,0,0,0.8)] overflow-y-auto max-h-[90vh]"
           >
             {/* Close Button */}
             <button
@@ -83,75 +83,73 @@ const StickyModal = () => {
 
             <div className="flex flex-col md:flex-row h-full">
               {/* Image Side */}
-              <div
-                className="hidden md:block w-2/5 bg-cover bg-center"
-                style={{
-                  backgroundImage:
-                    'url(https://images.unsplash.com/photo-1574680096145-d05b474e2155?q=80&w=2069&auto=format&fit=crop)',
-                }}
-              >
-                <div className="h-full w-full bg-primary/20 backdrop-blur-[2px] p-6 flex flex-col justify-end">
-                  <div className="bg-secondary p-4 rounded-sm border-l-4 border-primary">
-                    <p className="font-display text-white text-xl tracking-wider uppercase mb-1">Join the Elite</p>
-                    <p className="text-neutral-300 text-xs font-light uppercase tracking-widest">FitZone New Delhi</p>
+              <div className="hidden md:block w-2/5 relative bg-neutral-800">
+                <img 
+                  src="https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?q=80&w=2069&auto=format&fit=crop" 
+                  className="absolute inset-0 w-full h-full object-cover z-0" 
+                  alt="Training"
+                />
+                <div className="absolute inset-0 bg-primary/20 backdrop-blur-[1px] p-6 flex flex-col justify-end z-10">
+                  <div className="bg-secondary p-4 rounded-sm border-l-4 border-primary shadow-2xl">
+                    <p className="font-display text-white text-xl tracking-wider uppercase mb-1 italic font-black">Join the Elite</p>
+                    <p className="text-neutral-300 text-[10px] font-bold uppercase tracking-widest italic leading-none mt-1">FitZone New Delhi</p>
                   </div>
                 </div>
               </div>
 
               {/* Form Side */}
-              <div className="flex-1 p-8 md:p-10 flex flex-col justify-center">
+              <div className="flex-1 p-8 md:p-12 flex flex-col justify-center relative z-20">
                 {!submitted ? (
                   <>
-                    <div className="mb-8">
-                      <span className="text-primary font-display tracking-widest uppercase font-bold text-sm block mb-2">Exclusive Offer</span>
-                      <h2 className="text-4xl text-secondary font-display font-bold leading-tight mb-4 tracking-tight">
-                        CLAIM YOUR <span className="text-primary italic">FREE</span> DAY PASS
+                    <div className="mb-10">
+                      <span className="text-primary font-display tracking-[0.4em] uppercase font-black text-xs block mb-3">Exclusive Offer</span>
+                      <h2 className="text-5xl text-white font-display italic uppercase leading-[0.85] mb-6 tracking-tighter">
+                        CLAIM YOUR <span className="text-primary underline decoration-primary/20">FREE</span> <br/> DAY PASS
                       </h2>
-                      <p className="text-neutral-500 font-light text-lg">
+                      <p className="text-neutral-400 font-light text-sm italic font-bold uppercase tracking-widest leading-relaxed mt-4">
                         Experience the machine. No commitment. Just results.
                       </p>
                     </div>
-
-                    <form className="space-y-4" onSubmit={handleSubmit}>
-                      <div className="relative flex items-center">
-                        <User className="absolute left-4 text-neutral-400" size={18} />
+                    <form className="space-y-6" onSubmit={handleSubmit}>
+                      <div className="relative group/input">
+                        <User className="absolute left-4 top-1/2 -translate-y-1/2 text-primary/40 group-focus-within/input:text-primary transition-colors" size={18} />
                         <input
                           required
                           name="name"
                           type="text"
-                          placeholder="Full Name"
-                          className="input pl-12"
+                          placeholder="FULL IDENTITY"
+                          className="w-full bg-black/40 border border-white/5 px-12 py-5 rounded-sm focus:outline-none focus:ring-1 focus:ring-primary focus:border-transparent transition-all placeholder:text-neutral-800 text-white font-display uppercase italic tracking-[0.2em] text-lg"
                         />
                       </div>
-                      <div className="relative flex items-center">
-                        <Smartphone className="absolute left-4 text-neutral-400" size={18} />
+                      <div className="relative group/input">
+                        <Smartphone className="absolute left-4 top-1/2 -translate-y-1/2 text-primary/40 group-focus-within/input:text-primary transition-colors" size={18} />
                         <input
                           required
                           name="phone"
                           type="tel"
-                          placeholder="Phone Number"
-                          className="input pl-12"
+                          placeholder="CONTACT CODE"
+                          className="w-full bg-black/40 border border-white/5 px-12 py-5 rounded-sm focus:outline-none focus:ring-1 focus:ring-primary focus:border-transparent transition-all placeholder:text-neutral-800 text-white font-display uppercase italic tracking-[0.2em] text-lg"
                         />
                       </div>
-                      <div className="relative flex items-center">
-                        <Calendar className="absolute left-4 text-neutral-400" size={18} />
+                      <div className="relative group/input">
+                        <Calendar className="absolute left-4 top-1/2 -translate-y-1/2 text-primary/40 group-focus-within/input:text-primary transition-colors" size={18} />
                         <input
                           required
                           name="date"
                           type="date"
-                          className="input pl-12 text-neutral-500"
+                          className="w-full bg-black/40 border border-white/5 px-12 py-5 rounded-sm focus:outline-none focus:ring-1 focus:ring-primary focus:border-transparent transition-all placeholder:text-neutral-800 text-white font-display uppercase italic tracking-[0.2em] text-lg filter invert-[0.8]"
                         />
                       </div>
-                      <button type="submit" className="btn-primary w-full py-5 text-xl tracking-[0.2em] shadow-xl hover:shadow-primary/20">
-                        GET MY FREE PASS
+                      <button type="submit" className="btn-primary w-full py-6 text-2xl tracking-[0.3em] shadow-glow group uppercase italic font-black relative overflow-hidden mt-4">
+                         <span className="relative z-10">INITIALIZE PASS</span>
+                         <div className="absolute inset-0 bg-white/20 -translate-x-full group-hover:translate-x-0 transition-transform duration-500" />
                       </button>
                     </form>
-
                     <button 
                       onClick={handleClose}
-                      className="mt-6 text-neutral-400 hover:text-secondary text-sm font-light uppercase tracking-widest transition-colors w-full text-center"
+                      className="mt-8 text-neutral-500 hover:text-white text-[10px] font-bold uppercase tracking-[0.4em] transition-colors w-full text-center italic"
                     >
-                      Not now, I prefer to pay later.
+                      ABORT MISSION
                     </button>
                   </>
                 ) : (

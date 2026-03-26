@@ -20,9 +20,9 @@ const Home = () => {
   ];
 
   const trainers = [
-    { name: 'Rahul Verma', role: 'Head Coach', img: 'https://images.unsplash.com/photo-1583454110551-21f2fa2ec617?q=80&w=2070&auto=format&fit=crop' },
-    { name: 'Sarah Singh', role: 'Yoga Specialist', img: 'https://images.unsplash.com/photo-1518611012118-2969c63700b7?q=80&w=2070&auto=format&fit=crop' },
-    { name: 'Mike Johnson', role: 'Strength Lead', img: 'https://images.unsplash.com/photo-1567013127542-490d757e51fe?q=80&w=2070&auto=format&fit=crop' },
+    { name: 'Rahul Verma', role: 'Head Coach', img: 'https://images.unsplash.com/photo-1594381898411-846e7d193883?q=80&w=2000&auto=format&fit=crop' },
+    { name: 'Sarah Singh', role: 'Yoga Specialist', img: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=2000&auto=format&fit=crop' },
+    { name: 'Mike Johnson', role: 'Strength Lead', img: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=2000&auto=format&fit=crop' },
   ];
 
   const testimonials = [
@@ -145,8 +145,8 @@ const Home = () => {
                   whileHover={{ scale: 1.02 }}
                   className="group relative h-[600px] overflow-hidden rounded-sm cursor-pointer shadow-3xl transition-all duration-1000"
                 >
-                  <img src={cat.img} className="w-full h-full object-cover brightness-110 group-hover:scale-110 transition-all duration-1000" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-secondary via-secondary/20 to-transparent p-10 flex flex-col justify-end">
+                  <img src={cat.img} className="absolute inset-0 w-full h-full object-cover z-0 transition-all duration-1000 scale-105 group-hover:scale-110" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-secondary via-secondary/40 to-transparent p-10 flex flex-col justify-end z-10">
                     <span className="text-primary font-display text-sm tracking-[0.4em] uppercase mb-2 font-black">Elite Class</span>
                     <h3 className="text-5xl text-white font-display italic mb-4 uppercase tracking-tighter">{cat.title}</h3>
                     <p className="text-neutral-400 text-sm font-light leading-relaxed mb-8 opacity-0 group-hover:opacity-100 transition-all duration-700 translate-y-4 group-hover:translate-y-0">
@@ -233,17 +233,21 @@ const Home = () => {
         </div>
 
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12">
-           {trainers.map((trainer, i) => (
+            {trainers.map((trainer, i) => (
               <ThreeDTilt key={i}>
-                <div className="group relative bg-neutral-900 rounded-sm overflow-hidden border border-white/5 hover:border-primary/50 transition-all duration-700 h-[650px] shadow-3xl">
-                   <img src={trainer.img} className="w-full h-full object-cover brightness-110 transition-all duration-1000 scale-105 group-hover:scale-100" />
-                   <div className="absolute inset-0 bg-gradient-to-t from-neutral-900 via-transparent to-transparent flex flex-col justify-end p-10">
-                      <span className="text-primary font-display tracking-[0.3em] font-bold text-xs uppercase mb-2">{trainer.role}</span>
-                      <h3 className="text-5xl text-white font-display uppercase italic tracking-tighter mb-4">{trainer.name.split(' ')[0]} <span className="text-primary">{trainer.name.split(' ')[1]}</span></h3>
-                      <p className="text-neutral-500 text-sm font-light uppercase tracking-widest mb-10 translate-y-10 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-700">
+                <div className="group relative bg-neutral-800 rounded-sm overflow-hidden border border-white/5 hover:border-primary/50 transition-all duration-700 h-[650px] shadow-3xl">
+                   <img 
+                    src={trainer.img} 
+                    className="absolute inset-0 w-full h-full object-cover z-0 transition-all duration-1000 scale-105 group-hover:scale-100" 
+                    alt={trainer.name}
+                   />
+                   <div className="absolute inset-0 bg-gradient-to-t from-neutral-900 via-neutral-900/40 to-transparent z-10 flex flex-col justify-end p-10">
+                      <span className="text-primary font-display tracking-[0.3em] font-bold text-xs uppercase mb-2 relative z-20">{trainer.role}</span>
+                      <h3 className="text-5xl text-white font-display uppercase italic tracking-tighter mb-4 relative z-20">{trainer.name.split(' ')[0]} <span className="text-primary">{trainer.name.split(' ')[1]}</span></h3>
+                      <p className="text-neutral-300 text-sm font-light uppercase tracking-widest mb-10 translate-y-10 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-700 relative z-20">
                          Leading transformation strategy for over {i + 8} years.
                       </p>
-                      <Link to="/trainers" className="btn-ghost py-4 px-8 text-white w-fit text-sm">VIEW PROFILE</Link>
+                      <Link to="/trainers" className="btn-ghost py-4 px-8 text-white w-fit text-sm relative z-20 border-white/20">VIEW PROFILE</Link>
                    </div>
                 </div>
               </ThreeDTilt>

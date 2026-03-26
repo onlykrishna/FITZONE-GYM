@@ -12,7 +12,7 @@ const Trainers = () => {
             experience: '12+ Years',
             specialties: ['Strength & Conditioning', 'Body Transformation', 'Athletic Performance'],
             certs: ['ACE Certified', 'CrossFit Level 2', 'Nasm Nutrition'],
-            img: 'https://images.unsplash.com/photo-1583454110551-21f2fa2ec617?q=80&w=2070&auto=format&fit=crop',
+            img: 'https://images.unsplash.com/photo-1594381898411-846e7d193883?q=80&w=2000&auto=format&fit=crop',
             quote: 'Training is not just about the body, it is about the mindset.'
         },
         {
@@ -22,7 +22,7 @@ const Trainers = () => {
             experience: '8+ Years',
             specialties: ['Vinyasa Flow', 'Ashtanga', 'Flexibility & Recovery'],
             certs: ['Yoga Alliance 500H', 'Functional Mobility Specialist'],
-            img: 'https://images.unsplash.com/photo-1518611012118-2969c63700b7?q=80&w=2070&auto=format&fit=crop',
+            img: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=2000&auto=format&fit=crop',
             quote: 'Find your flow. Balance is the key to longevity.'
         },
         {
@@ -32,7 +32,7 @@ const Trainers = () => {
             experience: '10+ Years',
             specialties: ['Kettlebell Training', 'HIIT', 'Powerlifting'],
             certs: ['StrongFirst Level 1', 'Precision Nutrition'],
-            img: 'https://images.unsplash.com/photo-1567013127542-490d757e51fe?q=80&w=2070&auto=format&fit=crop',
+            img: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=2000&auto=format&fit=crop',
             quote: 'Push your limits. The only easy day was yesterday.'
         },
         {
@@ -74,10 +74,10 @@ const Trainers = () => {
                         className="group flex flex-col lg:flex-row bg-neutral-900 border border-white/5 rounded-sm overflow-hidden hover:border-primary/40 transition-all duration-700 relative h-full lg:h-[500px]"
                     >
                         {/* Image Section */}
-                        <div className="w-full lg:w-2/5 relative h-[400px] lg:h-full overflow-hidden">
-                            <img src={trainer.img} className="w-full h-full object-cover brightness-110 transition-all duration-1000 scale-105 group-hover:scale-100" />
-                            <div className="absolute inset-0 bg-gradient-to-t from-neutral-900 via-transparent to-transparent lg:bg-gradient-to-r lg:from-transparent lg:to-neutral-900" />
-                            <div className="absolute bottom-6 left-6 flex space-x-3 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity duration-700 delay-300">
+                        <div className="w-full lg:w-2/5 relative h-[450px] lg:h-full bg-neutral-800">
+                            <img src={trainer.img} className="absolute inset-0 w-full h-full object-cover z-0 transition-all duration-1000 scale-105 group-hover:scale-100" />
+                            <div className="absolute inset-0 bg-gradient-to-t from-neutral-900 via-transparent to-transparent lg:bg-gradient-to-r lg:from-transparent lg:to-neutral-900 z-10" />
+                            <div className="absolute bottom-6 left-6 flex space-x-3 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity duration-700 delay-300 z-20">
                                 {[Instagram, Twitter, Linkedin].map((Icon, i) => (
                                     <a key={i} href="#" className="w-10 h-10 lg:w-8 lg:h-8 flex items-center justify-center bg-primary text-secondary rounded-full hover:bg-white transition-colors shadow-lg">
                                         <Icon size={16} />
