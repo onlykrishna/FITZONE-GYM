@@ -75,7 +75,7 @@ const Trainers = () => {
                     >
                         {/* Image Section */}
                         <div className="w-full lg:w-2/5 relative h-[400px] lg:h-full overflow-hidden">
-                            <img src={trainer.img} className="w-full h-full object-cover brightness-90 group-hover:brightness-110 transition-all duration-1000 scale-105 group-hover:scale-100" />
+                            <img src={trainer.img} className="w-full h-full object-cover brightness-110 transition-all duration-1000 scale-105 group-hover:scale-100" />
                             <div className="absolute inset-0 bg-gradient-to-t from-neutral-900 via-transparent to-transparent lg:bg-gradient-to-r lg:from-transparent lg:to-neutral-900" />
                             <div className="absolute bottom-6 left-6 flex space-x-3 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity duration-700 delay-300">
                                 {[Instagram, Twitter, Linkedin].map((Icon, i) => (

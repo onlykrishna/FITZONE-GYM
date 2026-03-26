@@ -143,9 +143,9 @@ const Home = () => {
               <ThreeDTilt key={cat.title}>
                 <motion.div
                   whileHover={{ scale: 1.02 }}
-                  className="group relative h-[600px] overflow-hidden rounded-sm cursor-pointer shadow-3xl grayscale hover:grayscale-0 transition-all duration-1000"
+                  className="group relative h-[600px] overflow-hidden rounded-sm cursor-pointer shadow-3xl transition-all duration-1000"
                 >
-                  <img src={cat.img} className="w-full h-full object-cover group-hover:scale-110 transition-all duration-1000" />
+                  <img src={cat.img} className="w-full h-full object-cover brightness-110 group-hover:scale-110 transition-all duration-1000" />
                   <div className="absolute inset-0 bg-gradient-to-t from-secondary via-secondary/20 to-transparent p-10 flex flex-col justify-end">
                     <span className="text-primary font-display text-sm tracking-[0.4em] uppercase mb-2 font-black">Elite Class</span>
                     <h3 className="text-5xl text-white font-display italic mb-4 uppercase tracking-tighter">{cat.title}</h3>
@@ -236,7 +236,7 @@ const Home = () => {
            {trainers.map((trainer, i) => (
               <ThreeDTilt key={i}>
                 <div className="group relative bg-neutral-900 rounded-sm overflow-hidden border border-white/5 hover:border-primary/50 transition-all duration-700 h-[650px] shadow-3xl">
-                   <img src={trainer.img} className="w-full h-full object-cover grayscale brightness-50 group-hover:grayscale-0 group-hover:brightness-100 transition-all duration-1000 scale-105 group-hover:scale-100" />
+                   <img src={trainer.img} className="w-full h-full object-cover brightness-110 transition-all duration-1000 scale-105 group-hover:scale-100" />
                    <div className="absolute inset-0 bg-gradient-to-t from-neutral-900 via-transparent to-transparent flex flex-col justify-end p-10">
                       <span className="text-primary font-display tracking-[0.3em] font-bold text-xs uppercase mb-2">{trainer.role}</span>
                       <h3 className="text-5xl text-white font-display uppercase italic tracking-tighter mb-4">{trainer.name.split(' ')[0]} <span className="text-primary">{trainer.name.split(' ')[1]}</span></h3>
